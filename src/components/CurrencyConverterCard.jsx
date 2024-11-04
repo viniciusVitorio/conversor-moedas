@@ -24,6 +24,12 @@ const CurrencyConverterCard = () => {
     fetchConversionRate();
   }, [fromCurrency, toCurrency]);
 
+  useEffect(() => {
+    if (convertedValue !== null) {
+      convertCurrency()
+    }
+  }, [conversionRate])
+
   const validateAmount = (value) => value > 0 && !isNaN(value);
 
   const convertCurrency = () => {
@@ -89,6 +95,11 @@ const CurrencyConverterCard = () => {
       {convertedValue && (
         <p className="text-green-400 text-center mt-4">
           Valor Convertido: {convertedValue} {toCurrency}
+        </p>
+      )}
+      {conversionRate && (
+        <p className="text-green-400 text-center mt-4">
+          Taxa de câmbio: {conversionRate}
         </p>
       )}
     </div>
