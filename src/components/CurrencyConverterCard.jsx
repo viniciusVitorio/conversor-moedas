@@ -21,7 +21,7 @@ const CurrencyConverterCard = () => {
   };
 
   useEffect(() => {
-    fetchConversionRate();
+      fetchConversionRate();
   }, [fromCurrency, toCurrency]);
 
   useEffect(() => {
@@ -51,8 +51,8 @@ const CurrencyConverterCard = () => {
       <h2 className="text-2xl font-bold text-center mb-6 text-gray-100">Conversor de Moedas</h2>
       
       <input
-        type="text"
-        className="w-full p-3 mb-4 bg-gray-700 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        type="number"
+        className="w-full remove-arrow p-3 mb-4 bg-gray-700 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         placeholder="Insira o valor"
         value={amount}
         onChange={handleAmountChange}
@@ -97,7 +97,7 @@ const CurrencyConverterCard = () => {
           Valor Convertido: {convertedValue} {toCurrency}
         </p>
       )}
-      {conversionRate && (
+      {conversionRate && convertedValue && (
         <p className="text-green-400 text-center mt-4">
           Taxa de câmbio: {conversionRate}
         </p>
